@@ -12,4 +12,5 @@
         android:layout_height="match_parent"
         tools:context="com.example.android.newsfeed.SettingsActivity">
     </fragment>
+
 </android.support.constraint.ConstraintLayout>

@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Fragment that displays "Science Category".
+ * Fragment that displays the News.
  */
 public class NewsFragment extends Fragment implements LoaderManager.LoaderCallbacks<List<News>> {
 
