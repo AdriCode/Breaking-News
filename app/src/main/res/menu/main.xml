@@ -3,9 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.android.newsfeed.MainActivity">
     <item
+        android:id="@+id/action_refresh"
+        android:title="@string/settings_menu_item2"
+        android:orderInCategory="1"
+        android:icon="@drawable/ic_refresh"
+        app:showAsAction="ifRoom"/>
+    <item
         android:id="@+id/action_settings"
         android:title="@string/settings_menu_item1"
-        android:orderInCategory="1"
+        android:orderInCategory="2"
         android:icon="@drawable/ic_menu"
         app:showAsAction="ifRoom" />
 </menu>

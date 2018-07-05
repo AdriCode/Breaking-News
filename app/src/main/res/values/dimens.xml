@@ -12,4 +12,6 @@
     <dimen name="title">25sp</dimen>
     <dimen name="divider">1dp</dimen>
     <dimen name="padding_divider">8dp</dimen>
+    <dimen name="drawablePadding">0dp</dimen>
+    <dimen name="action_icon_padding">1dp</dimen>
 </resources>

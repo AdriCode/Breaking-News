@@ -140,5 +140,21 @@ public class NewsFragment extends Fragment implements LoaderManager.LoaderCallba
     public void onLoaderReset(Loader<List<News>> loader) {
         mAdapter.getClean();
     }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        updateUI();
+    }
+
+    private void updateUI(){
+        if (mAdapter == null){
+            mAdapter = new NewsAdapter(context, new ArrayList<News>());
+            mRecyclerView.setAdapter(mAdapter);
+        } else{
+
+            mAdapter.notifyDataSetChanged();
+        }
+    }
 }
 

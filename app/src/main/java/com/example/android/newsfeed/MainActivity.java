@@ -43,19 +43,28 @@ public class MainActivity extends AppCompatActivity{
     }
 
     @Override
-    // This method initialize the contents of the Activity's options menu
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onPrepareOptionsMenu(final Menu menu)
+    {
+        menu.clear();
+        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            Intent settingsIntent = new Intent(this, SettingsActivity.class);
-            startActivity(settingsIntent);
-            return true;
+        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+
+        switch (id)
+        {
+            case R.id.action_refresh:
+                fragment.onResume();
+                return true;
+            case R.id.action_settings:
+                Intent settingsIntent = new Intent(this, SettingsActivity.class);
+                startActivity(settingsIntent);
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
