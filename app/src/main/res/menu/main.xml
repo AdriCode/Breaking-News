@@ -4,7 +4,8 @@
     tools:context="com.example.android.newsfeed.MainActivity">
     <item
         android:id="@+id/action_settings"
-        android:title="@string/settings_menu_item"
-        android:icon="@drawable/ic_filter"
-        android:orderInCategory="1" />
+        android:title="@string/settings_menu_item1"
+        android:orderInCategory="1"
+        android:icon="@drawable/ic_menu"
+        app:showAsAction="ifRoom" />
 </menu>
