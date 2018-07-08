@@ -8,9 +8,11 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +25,8 @@ import java.util.List;
 /**
  * Fragment that displays the News.
  */
-public class NewsFragment extends Fragment implements LoaderManager.LoaderCallbacks<List<News>> {
+public class NewsFragment extends Fragment implements LoaderManager.LoaderCallbacks<List<News>>,
+        SharedPreferences.OnSharedPreferenceChangeListener {
 
     private static final int NEWS_LOADER_ID = 1;
     private TextView mEmptyView;
@@ -34,7 +37,7 @@ public class NewsFragment extends Fragment implements LoaderManager.LoaderCallba
     String ApiKey = BuildConfig.ApiKey;
     private String REQUEST_URL = null;
     private Uri.Builder builtUri;
-    SharedPreferences sharedPrefs;
+    private SharedPreferences sharedPrefs;
 
 
     /** Adapter for the list of News */
@@ -51,6 +54,9 @@ public class NewsFragment extends Fragment implements LoaderManager.LoaderCallba
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
+
+        sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        sharedPrefs.registerOnSharedPreferenceChangeListener(this);
 
         //Setting min number of News to display
         String minNews = sharedPrefs.getString(
@@ -171,5 +177,11 @@ public class NewsFragment extends Fragment implements LoaderManager.LoaderCallba
             mAdapter.notifyDataSetChanged();
         }
     }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+
+    }
+
 }
 
