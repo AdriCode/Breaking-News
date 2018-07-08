@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/settings_title">
-        <EditTextPreference
-            android:defaultValue="@string/settings_min_default"
-            android:inputType="number"
-            android:key="@string/settings_min_key"
-            android:selectAllOnFocus="true"
-            android:title="@string/settings_min_label" />
+    <EditTextPreference
+        android:defaultValue="@string/settings_min_default"
+        android:inputType="number"
+        android:key="@string/settings_min_key"
+        android:selectAllOnFocus="true"
+        android:title="@string/settings_min_label" />
+
+    <CheckBoxPreference
+        android:defaultValue="@string/settings_media_default"
+        android:key="@string/settings_media_value"
+        android:title="@string/settings_media_label" />
+
+    <CheckBoxPreference
+        android:defaultValue="@string/settings_rating_default"
+        android:key="@string/settings_rating_value"
+        android:title="@string/settings_rating_label" />
+
+    <ListPreference
+        android:defaultValue="@string/settings_order_by_default"
+        android:entries="@array/settings_labels"
+        android:entryValues="@array/settings_values"
+        android:key="@string/settings_order_by_key"
+        android:title="@string/settings_order_by_label" />
+
 </PreferenceScreen>

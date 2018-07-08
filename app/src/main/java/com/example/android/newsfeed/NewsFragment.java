@@ -3,6 +3,7 @@ package com.example.android.newsfeed;
 import android.app.LoaderManager;
 import android.content.Context;
 import android.content.Loader;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -33,6 +34,8 @@ public class NewsFragment extends Fragment implements LoaderManager.LoaderCallba
     String ApiKey = BuildConfig.ApiKey;
     private String REQUEST_URL = null;
     private Uri.Builder builtUri;
+    SharedPreferences sharedPrefs;
+
 
     /** Adapter for the list of News */
     private NewsAdapter mAdapter;
@@ -49,6 +52,17 @@ public class NewsFragment extends Fragment implements LoaderManager.LoaderCallba
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
 
+        //Setting min number of News to display
+        String minNews = sharedPrefs.getString(
+                getString(R.string.settings_min_key),
+                getString(R.string.settings_min_default));
+
+        //Order by preferences
+        String orderBy  = sharedPrefs.getString(
+                getString(R.string.settings_order_by_key),
+                getString(R.string.settings_order_by_default)
+        );
+
         // parse breaks apart the URI string that's passed into its parameter
         Uri baseUri = Uri.parse(URL);
         // buildUpon prepares the baseUri that we just parsed so we can add query parameters to it
@@ -58,7 +72,8 @@ public class NewsFragment extends Fragment implements LoaderManager.LoaderCallba
         builtUri.appendQueryParameter("format", "json");
         builtUri.appendQueryParameter("from-date", "2018-01-01");
         builtUri.appendQueryParameter("show-fields", "byline");
-        builtUri.appendQueryParameter("order-by", "newest");
+        builtUri.appendQueryParameter("limit", minNews);
+        builtUri.appendQueryParameter("order-by", orderBy);
         builtUri.appendQueryParameter("api-key", ApiKey);
 
         REQUEST_URL = builtUri.toString();
