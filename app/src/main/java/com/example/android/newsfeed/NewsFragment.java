@@ -12,7 +12,6 @@ import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,7 +37,7 @@ public class NewsFragment extends Fragment implements LoaderManager.LoaderCallba
     private String REQUEST_URL = null;
     private Uri.Builder builtUri;
     private SharedPreferences sharedPrefs;
-
+    private SharedPreferences.OnSharedPreferenceChangeListener prefListener;
 
     /** Adapter for the list of News */
     private NewsAdapter mAdapter;
@@ -55,13 +54,20 @@ public class NewsFragment extends Fragment implements LoaderManager.LoaderCallba
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
 
+        //Listener on changed preference:
         sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        sharedPrefs.registerOnSharedPreferenceChangeListener(this);
 
-        //Setting min number of News to display
-        String minNews = sharedPrefs.getString(
-                getString(R.string.settings_min_key),
-                getString(R.string.settings_min_default));
+        prefListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
+            public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+                getActivity().getLoaderManager().restartLoader(NEWS_LOADER_ID, null, NewsFragment.this);
+            }
+        };
+        sharedPrefs.registerOnSharedPreferenceChangeListener(prefListener);
+
+        //Retrieves the category key from sharedPrefs instance
+        String category= sharedPrefs.getString(
+                getString(R.string.settings_category_key),
+                getString(R.string.settings_category_default));
 
         //Order by preferences
         String orderBy  = sharedPrefs.getString(
@@ -78,7 +84,7 @@ public class NewsFragment extends Fragment implements LoaderManager.LoaderCallba
         builtUri.appendQueryParameter("format", "json");
         builtUri.appendQueryParameter("from-date", "2018-01-01");
         builtUri.appendQueryParameter("show-fields", "byline");
-        builtUri.appendQueryParameter("limit", minNews);
+        builtUri.appendQueryParameter("section", category);
         builtUri.appendQueryParameter("order-by", orderBy);
         builtUri.appendQueryParameter("api-key", ApiKey);
 
@@ -161,7 +167,6 @@ public class NewsFragment extends Fragment implements LoaderManager.LoaderCallba
     public void onLoaderReset(Loader<List<News>> loader) {
         mAdapter.getClean();
     }
-
     @Override
     public void onResume(){
         super.onResume();
@@ -179,9 +184,15 @@ public class NewsFragment extends Fragment implements LoaderManager.LoaderCallba
     }
 
     @Override
-    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-
+    public void onDestroy() {
+        super.onDestroy();
+        sharedPrefs.unregisterOnSharedPreferenceChangeListener(prefListener);
     }
 
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        // Set up a listener whenever a key changes
+        getActivity().getLoaderManager().restartLoader(NEWS_LOADER_ID, null, this);
+    }
 }
 

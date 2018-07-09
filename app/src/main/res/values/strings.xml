@@ -6,15 +6,10 @@
     <string name="settings_menu_item2">Refresh</string>
     <string name="settings_title">Settings</string>
 
-    <!--Preferences minimum number of  News-->
-    <string name="settings_min_label">Minimum number of News</string>
-    <string name="settings_min_key" translatable="false">min_News</string>
-    <string name="settings_min_default" translatable="false">0</string>
-
-    <!-- Preferences: Include Audio -->
-    <string name="settings_media_label">Include media</string>
-    <string name="settings_media_value" translatable="false">audio</string>
-    <string name="settings_media_default" translatable="false">audio</string>
+    <!-- Strings For Category Preference -->
+    <string name="settings_category_label">News Category</string>
+    <string name="settings_category_key" translatable="false">category</string>
+    <string name="settings_category_default" translatable="false">science</string>
 
     <!-- Strings For Order-By preference -->
     <string name="settings_order_by_label">Order By</string>
@@ -31,8 +26,4 @@
     <string name="settings_oldest_value" translatable="false">oldest</string>
     <string name="settings_oldest_default" translatable="false">oldest</string>
 
-    <!-- Preferences: Order-By Ranting -->
-    <string name="settings_rating_label">Rating</string>
-    <string name="settings_rating_value" translatable="false">star-rating</string>
-    <string name="settings_rating_default" translatable="false">5</string>
 </resources>
