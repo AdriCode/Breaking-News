@@ -6,8 +6,18 @@
     <string name="settings_menu_item2">Refresh</string>
     <string name="settings_title">Settings</string>
 
+    <!-- String for limit number News -->
+    <string name="news_limit_setting">News limit [1-50]</string>
+    <string name="news_limit_key" translatable="false">page_size</string>
+    <string name="news_limit_default" translatable="false">10</string>
+
+    <!-- String for Custom from date-->
+    <string name="from_date_setting">News from date [yyyy-mm-dd]</string>
+    <string name="from_date_key" translatable="false">from_date</string>
+    <string name="from_date_default" translatable="false">"2018-01-01"</string>
+
     <!-- Strings For Category Preference -->
-    <string name="settings_category_label">Category</string>
+    <string name="settings_category_label">Category: e.g. all, science, sport, world, politics, education.</string>
     <string name="settings_category_key" translatable="false">category</string>
     <string name="settings_category_default" translatable="false">science</string>
 

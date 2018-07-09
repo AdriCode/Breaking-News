@@ -75,6 +75,18 @@ public class NewsFragment extends Fragment implements LoaderManager.LoaderCallba
                 getString(R.string.settings_order_by_default)
         );
 
+        //Limit of News to display
+        String news_limit  = sharedPrefs.getString(
+                getString(R.string.news_limit_key),
+                getString(R.string.news_limit_default)
+        );
+
+        //Setting custom from date
+        String fromDate  = sharedPrefs.getString(
+                getString(R.string.from_date_key),
+                getString(R.string.from_date_default)
+        );
+
         // parse breaks apart the URI string that's passed into its parameter
         Uri baseUri = Uri.parse(URL);
         // buildUpon prepares the baseUri that we just parsed so we can add query parameters to it
@@ -82,11 +94,11 @@ public class NewsFragment extends Fragment implements LoaderManager.LoaderCallba
 
         // Append query parameter and its value. For example, the `format=geojson`
         builtUri.appendQueryParameter("format", "json");
-        builtUri.appendQueryParameter("from-date", "2018-01-01");
+        builtUri.appendQueryParameter("from-date", fromDate);
         builtUri.appendQueryParameter("show-fields", "byline");
         if (!"all".equals(category)){builtUri.appendQueryParameter("section", category);}
         builtUri.appendQueryParameter("order-by", orderBy);
-        builtUri.appendQueryParameter("page-size","20");
+        builtUri.appendQueryParameter("page-size", news_limit);
         builtUri.appendQueryParameter("api-key", ApiKey);
 
         REQUEST_URL = builtUri.toString();
