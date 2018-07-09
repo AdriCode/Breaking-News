@@ -84,8 +84,9 @@ public class NewsFragment extends Fragment implements LoaderManager.LoaderCallba
         builtUri.appendQueryParameter("format", "json");
         builtUri.appendQueryParameter("from-date", "2018-01-01");
         builtUri.appendQueryParameter("show-fields", "byline");
-        builtUri.appendQueryParameter("section", category);
+        if (!"all".equals(category)){builtUri.appendQueryParameter("section", category);}
         builtUri.appendQueryParameter("order-by", orderBy);
+        builtUri.appendQueryParameter("page-size","20");
         builtUri.appendQueryParameter("api-key", ApiKey);
 
         REQUEST_URL = builtUri.toString();
