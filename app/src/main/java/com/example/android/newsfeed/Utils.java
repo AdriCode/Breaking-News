@@ -2,9 +2,6 @@ package com.example.android.newsfeed;
 
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
-import android.widget.ImageView;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
