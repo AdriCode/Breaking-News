@@ -36,7 +36,13 @@ public class SettingsActivity extends AppCompatActivity {
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            addPreferencesFromResource(R.xml.settings_main);;
+            addPreferencesFromResource(R.xml.settings_main);
+
+            Preference news_limit = findPreference(getString(R.string.news_limit_key));
+            bindPreferenceSummaryToValue(news_limit);
+
+            Preference from_date = findPreference(getString(R.string.from_date_key));
+            bindPreferenceSummaryToValue(from_date);
 
             Preference category = findPreference(getString(R.string.settings_category_key));
             bindPreferenceSummaryToValue(category);
