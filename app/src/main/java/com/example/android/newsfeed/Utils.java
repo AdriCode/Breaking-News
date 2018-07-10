@@ -58,7 +58,6 @@ public class Utils {
 
                 // Extract the value author for the key called "fields"
                 String author = null;
-                String image = null;
 
                 if (fields.has("fields")){
                     JSONObject extraInfo = fields.getJSONObject("fields");
@@ -116,7 +115,7 @@ public class Utils {
 
             // If the request was successful (response code 200),
             // then read the input stream and parse the response.
-            if (urlConnection.getResponseCode() == 200) {
+            if (urlConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
                 inputStream = urlConnection.getInputStream();
                 jsonResponse = readFromStream(inputStream);
             } else {
