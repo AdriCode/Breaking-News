@@ -148,7 +148,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder> 
     private String formatTime(String time) {
         String newTime = null;
         SimpleDateFormat oldFormat = new SimpleDateFormat("HH:mm:ss");
-        SimpleDateFormat newFormat = new SimpleDateFormat("hh:mm a");
+        SimpleDateFormat newFormat = new SimpleDateFormat("h:mm a");
 
         try {
             newTime = newFormat.format(oldFormat.parse(time));
