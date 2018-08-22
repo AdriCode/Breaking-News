@@ -7,11 +7,14 @@ import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,7 +36,7 @@ public class NewsFragment extends Fragment implements LoaderManager.LoaderCallba
     private boolean isNetworkAvailable;
     private RecyclerView mRecyclerView;
     private Context context;
-    String ApiKey = BuildConfig.ApiKey;
+    private String ApiKey = BuildConfig.ApiKey;
     private String REQUEST_URL = null;
     private Uri.Builder builtUri;
     private SharedPreferences sharedPrefs;
@@ -153,8 +156,9 @@ public class NewsFragment extends Fragment implements LoaderManager.LoaderCallba
 
     @Override
     public void onLoadFinished(Loader<List<News>> loader, List<News> data) {
-        //Change the text color of the EmptyView
-        mEmptyView.setTextColor(getResources().getColor(R.color.colorBackground));
+        //Change the text style of the EmptyView
+        mEmptyView.setTextColor(getResources().getColor(R.color.secondary_text));
+        mEmptyView.setAllCaps(true);
             
         if (!isNetworkAvailable){
             //Display no connection message

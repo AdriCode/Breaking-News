@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Breaking News</string>
-    <string name="empty">No News found.</string>
-    <string name="internet">No internet connection.</string>
+    <string name="empty">No News found</string>
+    <string name="internet">No internet connection</string>
     <string name="settings_menu_item1">Settings</string>
     <string name="settings_menu_item2">Refresh</string>
     <string name="settings_title">Settings</string>
