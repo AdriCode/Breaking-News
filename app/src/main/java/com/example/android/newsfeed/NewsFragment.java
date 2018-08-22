@@ -153,6 +153,9 @@ public class NewsFragment extends Fragment implements LoaderManager.LoaderCallba
 
     @Override
     public void onLoadFinished(Loader<List<News>> loader, List<News> data) {
+        //Change the text color of the EmptyView
+        mEmptyView.setTextColor(getResources().getColor(R.color.colorBackground));
+            
         if (!isNetworkAvailable){
             //Display no connection message
             mEmptyView.setText(R.string.internet);
