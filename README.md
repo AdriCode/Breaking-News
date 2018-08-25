@@ -9,29 +9,10 @@ Clicking on a story starts a new intent to open the story in the user's browser.
 The app checks whether there is data to display or the device is connected to the internet, sending proper messages if not response. 
 
 &nbsp;
-![Screenshot](1.png)
+![Collage](https://github.com/AdriCode/Breaking-News/blob/master/collage1.jpg)
 
 &nbsp;
-![Screenshot](2.png)
-
-&nbsp;
-![Screenshot](3.png)
-
-&nbsp;
-![Screenshot](4.png)
+![Collage](https://github.com/AdriCode/Breaking-News/blob/master/collage2.jpg)
 
 &nbsp;
 ![Screenshot](5.png)
-
-&nbsp;
-![Screenshot](6.png)
-
-&nbsp;
-![Screenshot](7.png)
-
-&nbsp;
-![Screenshot](8.png)
-
-
-
-
