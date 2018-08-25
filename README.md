@@ -28,13 +28,13 @@ Additionally, It is possible to custom the preferences of how to display the new
 
 
 &nbsp;
-![Collage](https://github.com/AdriCode/Breaking-News/blob/master/collage1.jpg)
+![Collage](https://github.com/AdriCode/Breaking-News/blob/master/images/collage1.jpg)
 
 &nbsp;
-![Collage](https://github.com/AdriCode/Breaking-News/blob/master/collage2.jpg)
+![Collage](https://github.com/AdriCode/Breaking-News/blob/master/images/collage2.jpg)
 
 &nbsp;
-![Screenshot](5.png)
+![Screenshot](images/5.png)
 
 &nbsp;
 ### See :point_right: [Wiki](https://github.com/AdriCode/Breaking-News/wiki) for screenshoots.
