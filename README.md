@@ -37,4 +37,6 @@ Additionally, It is possible to custom the preferences of how to display the new
 ![Screenshot](5.png)
 
 &nbsp;
-### See :point_right: Wiki for screenshoots.
+### See :point_right: [Wiki](https://github.com/AdriCode/Breaking-News/wiki) for screenshoots.
+
+
