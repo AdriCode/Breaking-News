@@ -35,3 +35,6 @@ Additionally, It is possible to custom the preferences of how to display the new
 
 &nbsp;
 ![Screenshot](5.png)
+
+&nbsp;
+### See :point_right: Wiki for screenshoots.
