@@ -26,17 +26,8 @@ Additionally, It is possible to custom the preferences of how to display the new
 - Shared Preferences.
 - Setting Menu.
 
-
 &nbsp;
 ![Collage](https://github.com/AdriCode/Breaking-News/blob/master/images/collage1.jpg)
 
 &nbsp;
-![Collage](https://github.com/AdriCode/Breaking-News/blob/master/images/collage2.jpg)
-
-&nbsp;
-![Screenshot](images/5.png)
-
-&nbsp;
 ### See :point_right: [Wiki](https://github.com/AdriCode/Breaking-News/wiki) for screenshoots.
-
-
